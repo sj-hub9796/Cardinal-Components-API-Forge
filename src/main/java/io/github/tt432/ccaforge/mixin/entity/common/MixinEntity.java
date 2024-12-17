@@ -56,7 +56,7 @@ public abstract class MixinEntity implements ComponentProvider {
     private ComponentContainer components;
 
     @Shadow
-    public abstract Level level();
+    public Level level;
 
     @Shadow
     public abstract int getId();
@@ -85,7 +85,7 @@ public abstract class MixinEntity implements ComponentProvider {
     @Override
     public Iterable<ServerPlayer> getRecipientsForComponentSync() {
         Entity holder = (Entity) (Object) this;
-        if (!level().isClientSide) {
+        if (!this.level.isClientSide) {
             Deque<ServerPlayer> watchers = new ArrayDeque<>(Players.tracking(holder));
             if (holder instanceof ServerPlayer player && player.connection != null) {
                 watchers.addFirst(player);

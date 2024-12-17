@@ -71,7 +71,7 @@ public final class CardinalComponentsEntity {
     }
 
     private static void copyData(ServerPlayer original, ServerPlayer clone, boolean lossless) {
-        boolean keepInventory = original.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) || clone.isSpectator();
+        boolean keepInventory = original.level.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) || clone.isSpectator();
         Set<ComponentKey<?>> keys = ((ComponentProvider) original).getComponentContainer().keys();
 
         for (ComponentKey<?> key : keys) {

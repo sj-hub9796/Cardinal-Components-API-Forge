@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class Players {
     public static Collection<ServerPlayer> tracking(Entity entity) {
         Objects.requireNonNull(entity, "Entity cannot be null");
-        var manager = entity.level().getChunkSource();
+        var manager = entity.level.getChunkSource();
 
         if (manager instanceof ServerChunkCache scc) {
             var storage = scc.chunkMap;
